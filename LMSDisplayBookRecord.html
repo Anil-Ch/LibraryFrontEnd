@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+  <title>Library Management System</title>
+  <meta charset="utf-8">
+  <noscript>Enable Javascript in your browser</noscript>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>    
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+  
+  <link rel="stylesheet" href="css/LBMStyle.css">
+  <script src="js/DisplayRecordScript.js"></script> 
+ 
+</head>
+<body class="Displaybody">
+    
+<!-- NavBar Code -->
+    <nav class="navbar navbar-inverse" style="width:100%;">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand appTitle" href="#">Library Management System</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="navCustItem"><a href="LMSAddBookRecord.html">Add Book</a></li>        
+            <li class="active navCustItem"><a href="#">Display Book</a></li>       
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<!-- Conatiner Includes Api, Input Field and Button. -->
+    <div class="container-fluid" style="border-bottom-style: solid; margin-bottom:2px; width:100%;">       
+            <div class="row customRow">
+                <div class="col-sm-4 col-xs-4">
+                    <div class="input-group">
+                        <span class="input-group-addon"><b>Web-APIs</b></span>
+                          <select class="form-control" id="selectedOption"  data-toggle="tooltip" title="Select Option." required>
+                                       <option value="-1">Select Option..</option>                                      
+                                       <option value="All">Get All Book Records</option>    
+                                       <option value="Title">Find Book By Book Title</option>
+                                       <option value="Genre">Find Book By Book Genre</option>
+                                       <option value="AuthorName">Find Book By Book AuthorName</option>                        
+                            </select>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-3">
+                        <input type="text" class="form-control" id="SearchFieldValue">
+                </div>
+                <div class="col-sm-3 col-xs-3">
+                    <button type="button" class="btn custBtn btn-primary" id="SearchBook" title="Select WepApi and Click on this button to find particular book.">Find Book</button>
+                </div>
+
+                <div class="col-sm-2 col-xs-2">
+                    <button type="button" class="btn custBtn custBtn btn-warning pull-right" id="clearTable" title="Click on this button to clear table.">Clear Table</button>
+                </div>
+            </div>                
+        </div>
+ 
+<!-- Container Includes Table to display api data -->
+    <div class="container" >
+            <table class="table hover table-bordered table-responsive bookTable" id="bookTable" style="width:100%;">
+                <thead>
+                    <tr>
+						<th></th>
+						<th>Book Title</th>
+                        <th>Book Isbn</th>
+                        <th>Book Genre</th>
+                        <th>Book Publisher</th>
+                        <th>Book Authors</th>
+                    </tr>
+                </thead>
+                <tbody>            
+                </tbody>
+            </table>
+    </div>
+
+		
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><span id="model-title-content"></span></h4>
+        </div>
+        <div class="modal-body">
+          <p><span id="model-body-content">.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

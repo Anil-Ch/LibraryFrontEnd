@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+  <title>Library Management System</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+<!-- Bootstrap CSS v3 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+<!-- AutoComplete Css File-->
+  <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+  
+<!-- jQuery v1.9.1 or higher -->
+  <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+<!-- AutoComplete Js File-->
+   <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+    
+<!-- Bootstrap JS -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+<!-- validation -->
+<!-- FormValidation CSS file -->
+<link href="http://formvalidation.io/vendor/formvalidation/css/formValidation.min.css" rel="stylesheet"/>
+
+<!-- FormValidation plugin and the class supports validating Bootstrap form -->
+<script src="http://formvalidation.io/vendor/formvalidation/js/formValidation.min.js"></script>
+<script src="http://formvalidation.io/vendor/formvalidation/js/framework/bootstrap.min.js"></script>
+
+	
+<!-- Custom Files--> 
+  <link rel="stylesheet" href="css/LBMStyle.css"/>
+  <script src="js/AddBookRecord.js"></script>
+  
+</head>
+<body>
+
+<!-- NavBar Code -->
+    <nav class="navbar navbar-inverse navHeight">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand appTitle" href="#">Library Management System</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+              <li class="active navCustItem"><a href="#">Add Book</a></li>        
+              <li class="navCustItem"><a href="LMSDisplayBookRecord.html">Display Book</a></li>       
+          </ul>
+        </div>
+      </div>
+    </nav>
+	
+<!-- Conatiner Includes form to fill book data and send it to server using WebAApi( Ajax call ) -->
+    <div class="container" style="width:100%;">
+		<div class="row text-primary form_header">		 
+            New Book Record
+        </div>
+	<div class="row form_body">	
+<!-- Form : Add New Book --> 
+        <form class="form-horizontal" id="bookForm" action="#">
+                
+<!-- Input : Book Title -->
+            <div class="form-group">
+                    <label class="control-label newLabel col-lg-2 col-md-2 col-sm-2 col-xs-2" for="bookTitle">Book Title* :</label>
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input type="text" class="form-control" id="bookTitle" name="bookTitle" placeholder="Book Title" autocomplete="off" tabindex="1" data-toggle="tooltip" title="Enter Book Title." required>                            
+                        </div>                        
+                    </div>
+            </div>                                
+            
+<!-- Input : Book IsbnNo -->
+            <div class="form-group">
+                    <label class="control-label newLabel col-lg-2 col-md-2 col-sm-2 col-xs-2" for="bookIsbnNo">Book Isbn No* :</label>
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                         <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input type="text" class="form-control" id="bookIsbnNo" name="bookIsbnNo" placeholder="Book IsbnNo" autocomplete="off" tabindex="2" data-toggle="tooltip" title="Enter Book IsbnNo."  required>
+                        </div>
+                    </div>
+            </div>
+               
+<!-- Select : Book Genre -->
+            <div class="form-group">
+                    <label class="form-label newLabel col-lg-2 col-md-2 col-sm-2 col-xs-2" for="bookGenre">Book Genre* :</label>
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                         <div class="input-group selectContainer">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-chevron-down"></i></span>
+                        <select class="form-control" id="bookGenre" name="bookGenre" tabindex="3" data-toggle="tooltip" title="Select Book Genre." required>
+                            <option value="">Select Genre..</option>
+                            <option value="Literature">Literature</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Crime">Crime</option>
+                            <option value="Thriller">Thriller</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Science">Science</option>                            
+                        </select>
+                        </div>
+                    </div>
+            </div>
+                
+<!-- Select : Book Publisher -->
+            <div class="form-group">                    
+                        <label class="form-label newLabel col-lg-2 col-md-2 col-sm-2 col-xs-2" for="bookPublisher">Book Publisher* :</label>
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-chevron-down"></i></span>
+                                <input class="form-control" id="bookPublisher" name="bookPublisher" tabindex="4" data-toggle="tooltip" title="Enter Book Publisher Name." placeholder="Book Publisher Name." required>
+                            </div>
+                        </div>
+            </div>
+            
+<!-- Select : Display New Book Publisher Fields -->
+            <div id="newPublisher">
+                                   
+                    <div class='form-group'>
+                        <label class='form-label newLabel col-lg-2 col-md-2 col-sm-2 col-xs-2' for='pubDate'>Published Date :</label>
+                        <div class='col-lg-10 col-md-10 col-sm-10 col-xs-10'>
+                         <div class='input-group'>
+                            <span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span>
+                                <input type='date' class='form-control' id='pubDate' name='pubDate' autocomplete='off'  data-toggle='tooltip' title='Select Published Date'  required>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+                                                
+<!-- Multiple Select : Book Authors -->
+            <div class="form-group">                  
+                        <label class="form-label newLabel col-lg-2 col-md-2 col-sm-2 col-xs-2" for="bookAuthors">Book Authors* :</label>
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-chevron-down"></i></span>
+                                <input class="form-control" id="bookAuthors" name="bookAuthors" tabindex="5" data-toggle="tooltip" title="Enter Book Author Name." autocomplete='off' placeholder="Book Author Name." required>                                 
+                            </div>
+                        </div>
+            </div>
+                                                   
+<!-- Submit & Reset Buttons -->    
+            <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3" style="text-align: right;">
+                        <button type="submit" class="btn custBtn btn-lg btn-primary" tabindex="6" id="submitBook" title="Click on this button to send the book data to server.">Submit</button>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <button type="reset" class="btn custBtn btn-lg btn-warning" tabindex="7" id="resetsBookForm" title="Click on this button to reset form fields.">Reset</button>
+                    </div>
+            </div>
+       
+        </form>
+	</div>		
+    </div>
+    
+	
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><span id="model-title-content"></span></h4>
+        </div>
+        <div class="modal-body">
+          <p><span id="model-body-content">.</p>
+        </div>
+        <div class="modal-footer">
+		   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>		  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+ 
+  
+  
+	
+</body>
+</html>

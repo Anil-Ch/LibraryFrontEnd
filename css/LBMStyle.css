@@ -1,0 +1,306 @@
+.appTitle{
+      font-size: 22px;
+    font-family: Baskerville Old Face;    
+    margin-top: 1px;
+    color: white;
+}
+
+.well{
+    padding-top: auto;
+    padding-left: 3px;
+    padding-right: 1px;
+}
+
+*{
+     text-transform: capitalize;
+}
+
+.newLabel{
+    text-align: right;
+    font-style: normal;
+    font-family: Garamond;
+    font-size: 18px;    
+}
+
+.navbar{
+    background-color: rgb(25, 6, 71);
+	padding:0px;
+}
+
+#bookForm{
+ padding-top: 10px;   
+}
+
+.custBtn{
+    font-family: Garamond;
+    font-size: 16px;
+}
+
+.BackgroundEffects{
+    background-color: aqua;
+    font-size: 16px;
+    font-family: Verdana;
+    font-weight: 300;
+}
+
+table{
+    width: 100%;
+}
+
+.navCustItem{
+    font-size: 16px;
+    font-family: verdana;
+}
+
+table>thead{
+    font-size: 17px;
+    background-color: burlywood;
+    font-family: sans-serif;
+}
+
+table>tbody{
+    font-family: Garamond;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+select,input[type=text]{
+    font-family: Georgia;
+    font-size: 15px;
+}
+
+.custInput{
+    width: 30%;
+}
+
+.customRow{
+background-color: deepskyblue;
+    margin-bottom: 3px;
+}
+
+#bookForm .form-control-feedback {
+    right: 15px;
+	color: #E74C3C;
+}
+
+#bookForm .selectContainer .form-control-feedback {
+    right: 25px;
+	color: #E74C3C;
+}
+
+/* Color of invalid field */
+.has-error .control-label,
+.has-error .help-block,
+.has-error .form-control-feedback {
+    color: red;
+}
+
+/* Color of valid field */
+.has-success .control-label,
+.has-success .help-block,
+.has-success .form-control-feedback {
+    color: green;
+}
+
+#bookForm .form-control-feedback {
+    pointer-events: auto;
+}
+
+#bookForm .form-control-feedback:hover {
+    cursor: pointer;
+}
+
+.form_header{
+		background-color: DarkTurquoise;
+		font-size: 22px;
+		text-align:center;
+		font-family:Verdana;
+		font-weight: bold;
+}
+
+.btn{
+		font-weight:bold;			
+}
+
+.form_body,.Displaybody{
+	background-color: HoneyDew;
+}
+
+.form_body{
+	display: block; 
+    position:relative;
+}
+
+.model{
+	border:1px solid black;
+}
+
+.modal-header{
+	background-color: #428bca;	
+}
+
+#model-title-content{
+	font-size:22px;
+	font-weight:bolder;
+}
+.modal-body{
+     background-color: floralwhite;
+}
+#model-body-content{
+	font-size:17px;
+	font-weight:bold;
+}
+
+/* large desktops and up ----------- */
+@media screen and (min-width: 1200px) {
+     
+	 table>thead{
+        font-size: 17px;
+    }
+
+    table>tbody{
+        font-size: 17px;
+        font-weight: 600;
+    }
+    
+	.appTitle{
+      font-size: 22px;
+	}
+	
+   .navCustItem{
+        font-size: 16px;    
+    }
+    
+    .BackgroundEffects{
+       font-size: 17px;
+      } 
+        
+	
+	.newLabel{
+        font-size: 18px;    
+    }	
+	
+	.form_header{
+		font-size: 22px;		
+	}
+	
+	.bookTable{
+		width: 100%;
+	}	
+}
+
+/* tablets/desktops and up ----------- */
+@media (min-width: 992px) and (max-width: 1199px) {   
+    
+		
+	.navCustItem{
+        font-size: 2vw;    
+    }	
+	
+	.newLabel{
+        font-size: 14px;    
+    }
+	
+	.form_header{
+		font-size: 16px;		
+	}
+	
+	.navCustItem{
+        font-size: 14px;    
+    }
+	
+	.bookTable{
+		width: 100%;
+	}
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) { 
+    
+		
+	.newLabel{
+        font-size: 12px;    
+    }	
+	
+	.form_header{
+		font-size: 16px;
+	}
+	
+	
+	.navCustItem{
+        font-size: 14px;    
+    }
+	
+	.bookTable{
+		width: 100%;
+	}
+	
+	#model-title-content{
+	font-size:16px;
+	font-weight:bolder;
+}
+
+	#model-body-content{
+		font-size:12px;
+		font-weight:bolder;
+	}
+}
+
+/* Extra small devices (phones, up to 480px) */
+@media screen and (max-width: 767px) {
+    
+    table>tbody{
+        font-family: Garamond;
+        font-size: 10px;
+        font-weight: 400;
+    } 
+    
+    table>thead{
+        font-size: 10px;
+        background-color: burlywood;
+        font-family: sans-serif;
+    }
+    
+    .navCustItem{
+        font-size: 2vw;    
+    }
+    
+    .BackgroundEffects{
+       font-size: 12px;
+    } 
+	
+	.navCustItem{
+        font-size: 14px;    
+    }   
+    
+    
+    .custBtn{
+        height: auto;
+        font-size: 10px;
+    }
+        
+	.newLabel{
+        font-size: 12px;    
+    }	
+		
+	.form_header{
+		font-size: 16px;
+	}	
+	
+	.bookTable{
+		width: 100%;
+	}
+	
+	#model-title-content{
+	font-size:16px;
+	font-weight:bolder;
+}
+
+	#model-body-content{
+		font-size:12px;
+		font-weight:bolder;
+	}
+
+}
+
+
